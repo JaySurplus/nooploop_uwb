@@ -5,7 +5,7 @@ import threading
 import serial
 import json
 from queue import Queue
-
+from nooploop_uwb_helper import *
 
 class Nooploop_UWB_AOA(object):
     """nooploop uwb aoa parser.
@@ -21,14 +21,13 @@ class Nooploop_UWB_AOA(object):
                 if self.serial.in_waiting:
                     data = self.serial.read(self.serial.in_waiting)
                     self.binbuffer.extend(data)
-                    print(data)
                 else:
                     pass
 
                 try:
                     while True:
-            
-                        self.data_fifo.put(self.binbuffer.pop(0))
+                        header = find_frameheader(self.binbuffer)
+                        print(self.binbuffer[header+32])
                 except:
                     pass
 
