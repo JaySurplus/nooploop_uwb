@@ -1,11 +1,14 @@
 import nooploop_uwb
 
-uwb = nooploop_uwb.Nooploop_UWB_AOA('config.json')
 
-count = 0
-while count < 20000:
-    data = uwb.get_data()
-    #print(count,  data)
-    count += 1
+if __name__ == '__main__':
 
-uwb.terminate()
+    UWB_AOA = nooploop_uwb.Nooploop_UWB_AOA('config.json')
+
+    try:
+        while True:
+        
+            print(UWB_AOA)
+    except KeyboardInterrupt:
+        print("Press Ctrl-C to terminate while statement")
+        UWB_AOA.terminate()

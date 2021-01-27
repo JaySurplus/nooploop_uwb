@@ -1,5 +1,4 @@
 {
-    "port": "/dev/ttyUSB1",
-    "baudrate": 921600,
-    "role": "A"
+    "port": "/dev/ttyUSB2",
+    "baudrate": 921600
 }
