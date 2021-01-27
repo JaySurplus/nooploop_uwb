@@ -7,7 +7,6 @@ if __name__ == '__main__':
 
     try:
         while True:
-        
             print(UWB_AOA)
     except KeyboardInterrupt:
         print("Press Ctrl-C to terminate while statement")

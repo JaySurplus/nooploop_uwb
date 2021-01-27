@@ -13,7 +13,7 @@ class Nooploop_UWB_AOA(object):
     role:  1=Anchor, 2=Tag
     """
 
-    def __init__(self, config_path=None):
+    def __init__(self, config_path=None,port='/dev/ttyUSB1', baudrate=9216000):
         """
         Input:
             config_path: str
@@ -39,17 +39,19 @@ class Nooploop_UWB_AOA(object):
             with open(config_path) as f:
                 self.config = json.load(f)
             
-            port = self.config['port']
-            baudrate = self.config['baudrate']
-            #role = self.config['role']
+            self.port = self.config['port']
+            self.baudrate = self.config['baudrate']
 
+        else:
+            self.port = port
+            self.baudrate = baudrate
         self.role = None
         self.id = None
         self.valid_node_quantity = None
         self.node = []        
         self.voltage = 0
 
-        self.serial = serial.Serial(port, baudrate, timeout=None)
+        self.serial = serial.Serial(self.port, self.baudrate, timeout=None)
         self.data_fifo = Queue()
         
         self.serthread_alive = True
@@ -80,9 +82,8 @@ class Nooploop_UWB_AOA(object):
             "id": self.id,
             "voltage": self.voltage,
             "node_quantity": self.valid_node_quantity,
-            "nodes": {i: self.node[i] for  i in range(0, len(self.node))}
+            "nodes": {i: self.node[i] for i in range(len(self.node))}
         }
-
         
         return res_dic
 
