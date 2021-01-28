@@ -120,3 +120,7 @@ if __name__ == '__main__':
     "port": "/dev/ttyUSB1",
     "baudrate": 921600  
 }
+```
+
+## License
+This project is licensed under the Apache License, Version 2.0. Copyright 2018 Intel Corporation
