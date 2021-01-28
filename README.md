@@ -123,4 +123,4 @@ if __name__ == '__main__':
 ```
 
 ## License
-This project is licensed under the Apache License, Version 2.0. Copyright 2018 Intel Corporation
+This project is licensed under the Apache License, Version 2.0. Copyright 2021 ***JaySurplus***
