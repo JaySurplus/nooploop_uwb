@@ -1,10 +1,9 @@
-import nooploop_uwb
+from nooploop_uwb import aoa
 
 
 if __name__ == '__main__':
 
-    UWB_AOA = nooploop_uwb.Nooploop_UWB_AOA('config.json')
-
+    UWB_AOA = aoa.AOA('config.json')
     try:
         while True:
             print(UWB_AOA)

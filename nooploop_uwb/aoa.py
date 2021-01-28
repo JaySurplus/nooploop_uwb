@@ -5,9 +5,9 @@ import threading
 import serial
 import json
 from queue import Queue
-from nooploop_uwb_helper import *
+from nooploop_uwb.utils.nooploop_uwb_helper import *
 
-class Nooploop_UWB_AOA(object):
+class AOA(object):
     """nooploop uwb aoa parser.
 
     role:  1=Anchor, 2=Tag
@@ -75,7 +75,7 @@ class Nooploop_UWB_AOA(object):
         self.node = []
 
         for i in range(self.valid_node_quantity):
-            self.node.append(Nooploop_UWB_AOA_Anchor(frame_data[21+11*i: 32+11*i]).get_data())
+            self.node.append(AOA_Anchor(frame_data[21+11*i: 32+11*i]).get_data())
         
         res_dic = {
             "role": self.role,
@@ -109,7 +109,7 @@ class Nooploop_UWB_AOA(object):
 
 
 
-class Nooploop_UWB_AOA_Anchor(object):
+class AOA_Anchor(object):
     def __init__(self, data):
 
 
