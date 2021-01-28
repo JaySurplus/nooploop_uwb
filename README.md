@@ -57,10 +57,66 @@ $: python setup.py sdist bdist_wheel
 ```
 3. You are all set.
 
-### Run Example
+## Run Example
 
 1. Change directory to `(source code root)/examples`. Run
 ```bash
-(source code root)$:python examples.py
+(source code root)$:python example.py
 ```
 
+2. Outputs:
+
+```JSON
+{
+    "role": 2,
+    "id": 0,
+    "voltage": 4.364,
+    "node_quantity": 1,
+    "nodes": {
+        "0": {
+            "role": 1,
+            "id": 0,
+            "distance": 1.327,
+            "angle": 57.66,
+            "fp_rssi": -84.5,
+            "rx_rssi": -80.0
+        }
+    }
+}
+```
+
+
+## Usage
+
+```python
+from nooploop_uwb import aoa
+
+if __name__ == '__main__':
+    # Create AOA Instance with `config.json`
+    UWB_AOA = aoa.AOA('config.json')
+
+    # or create instance by passing port, baudrate parameters.
+    # UWB_AOA = aoa.AOA(port='/dev/ttyUSB1', baudrate=9216000)
+
+    try:
+        while True:
+            # __str__ method.
+            print(UWB_AOA)
+
+            # Get data in JSON format.
+            json_data = UWB_AOA.get_data_json()
+
+            # Get data in dictionary format.
+            dic_data = UWB_AOA.get_data()
+
+    except KeyboardInterrupt:
+        print("Press Ctrl-C to terminate while statement")
+        UWB_AOA.terminate()
+```
+
+```JSON
+# config.json
+{
+    "port": "/dev/ttyUSB1",
+    "baudrate": 921600  
+}
