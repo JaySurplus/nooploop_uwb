@@ -17,7 +17,8 @@ Unofficial Nooploop LinkTrack UWB Devices Python API. It parses Nooploop LinkTra
 
 **Ubuntu20.04** (Ubuntu18.04, Windows Should also work fine.)
 
-### prerequisites(If you want to build from source)
+### Prerequisites (If you want to build from source)
+
 * Setuptools,
 * Wheel
     
