@@ -6,10 +6,10 @@ Unofficial Nooploop LinkTrack UWB Devices Python API. It parses Nooploop LinkTra
 * Nooploop Homepage: [https://www.nooploop.com/](https://www.nooploop.com/)
 
 ## Supported Devices
-    | Product | Supported? | Protocols |
-    | :-----: | :--------: | :-------: |
-    | LinkTrack |  **NO**  |     -     |
-    | LinkTrack AOA | **Partial** | * NLink_LinkTrack_AOA_Node_Frame0 |
+| Product | Supported? | Protocols |
+| :-----: | :--------: | :-------: |
+| LinkTrack |  **NO**  |     -     |
+| LinkTrack AOA | **Partial** | NLink_LinkTrack_AOA_Node_Frame0 |
 
 ## Installation
 
