@@ -9,7 +9,6 @@ from nooploop_uwb.utils.nooploop_uwb_helper import *
 
 class AOA(object):
     """nooploop uwb aoa parser.
-
     role:  1=Anchor, 2=Tag
     """
     def __init__(self, config_path=None, port='/dev/ttyUSB1', baudrate=9216000):
@@ -112,14 +111,14 @@ class AOA_Anchor(object):
     def __init__(self, data):
 
 
-        def __int(v, bits=16):
+        def __signed_int(v, bits=16):
             if v & (1<<(bits-1)):
                 v -= 1<<bits
             return v
         self.role = data[0]
         self.id = data[1]
         self.dist = (data[2] << 8 | data[3] << 16 | data[4] << 24) / 256000
-        self.angle =  __int(data[5] | (data[6]<<8)) / 100
+        self.angle =  __signed_int(data[5] | (data[6]<<8)) / 100
         self.fp_rssi = data[7] / -2
         self.rx_rssi = data[8] / -2
 
