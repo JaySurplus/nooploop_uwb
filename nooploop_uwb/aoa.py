@@ -11,7 +11,7 @@ class AOA(object):
     """nooploop uwb aoa parser.
     role:  1=Anchor, 2=Tag
     """
-    def __init__(self, config_path=None, port='/dev/ttyUSB1', baudrate=9216000):
+    def __init__(self, config_path=None, port='/dev/ttyUSB0', baudrate=921600):
         """
         Input:
             config_path: str
